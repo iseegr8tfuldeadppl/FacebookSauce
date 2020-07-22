@@ -1,0 +1,43 @@
+
+> check the comments too cuz they contain the fix for last step not working
+https://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token/17234650#17234650
+
+forever access access_token
+EAAJUrqnnDw4BADM2Cb9c1H45xT38dmZCZCBiY1UHB5H96MAybZAufi9YwLPvcH40Wbq2vLsA5AacljDYVndsq036rsvN4XPT1xfwJsrNFooBijeXTBgh5QTYzof8F2AIj47IHHlR7AKjF7ERz3cDmL42oFbGTIG6hEGXHnIc8CytZCVlrp7m
+
+curl -X POST -H "Content-Type: application/json" -d '{ "recipient":{"id":"t_1034492786927319"},"message": {"text": "hello, world!"}}' "https://graph.facebook.com/v2.6/100439491416453/messages?access_token=EAAJUrqnnDw4BADM2Cb9c1H45xT38dmZCZCBiY1UHB5H96MAybZAufi9YwLPvcH40Wbq2vLsA5AacljDYVndsq036rsvN4XPT1xfwJsrNFooBijeXTBgh5QTYzof8F2AIj47IHHlR7AKjF7ERz3cDmL42oFbGTIG6hEGXHnIc8CytZCVlrp7m"
+curl -X POST -H "Content-Type: application/json" -d '{"recipient":{"id":"t_1034492786927319" },"message":{"text":"hello"}}' "https://graph.facebook.com/v2.6/me/messages?access_token=EAAJUrqnnDw4BADM2Cb9c1H45xT38dmZCZCBiY1UHB5H96MAybZAufi9YwLPvcH40Wbq2vLsA5AacljDYVndsq036rsvN4XPT1xfwJsrNFooBijeXTBgh5QTYzof8F2AIj47IHHlR7AKjF7ERz3cDmL42oFbGTIG6hEGXHnIc8CytZCVlrp7m"
+
+
+#https://github.com/adeshpande3/Facebook-Messenger-Bot/blob/master/index.js
+https://graph.facebook.com/v2.6/me/messages
+
+
+
+656059104956174 APP ID
+0f4a7c1617e3a1074a070dcff97e2375 APP SECRET
+
+
+
+2 month user token
+EAAJUrqnnDw4BAAvw0veGxcsWXWdM5Mo3Au9bkrlqpVcaGJSBRA89LX6vMM1xyQqhArhpnGMDzaTwg07wesqHB2h9q6Sku8xyEdojXhRo28yYKzAefq4CdkNeiroHKbkjAo7BPizmoAtTocyDSZBHQt4Qaur9aENqqwr53tgZDZD
+
+mustshop id
+100439491416453
+
+my profile id
+100024101222822
+
+
+https://graph.facebook.com/me/inbox?access_token=EAAJUrqnnDw4BAOG1rDOIh9HZAQEO37bApoV3bZB68WJNUs5PQxZBJytEMndiWaWqll1F7fvL1V0KZBTzbqfz1E7eZCL8PR9tffCDJacBpckzU692r8QteSZBZAvFB1bXGZCMxAmaZCsvOyw4XTjm0ooZAhYZBzBMaHlb9rHuFQxe1XfnPy2dsRCZAjWoxRicrVBSBdsw4ZBCZAzBn5VQZDZD
+https://graph.facebook.com/v3.0/100024101222822/conversations?fields=participants,link&limit=10000&access_token=EAAJUrqnnDw4BAOG1rDOIh9HZAQEO37bApoV3bZB68WJNUs5PQxZBJytEMndiWaWqll1F7fvL1V0KZBTzbqfz1E7eZCL8PR9tffCDJacBpckzU692r8QteSZBZAvFB1bXGZCMxAmaZCsvOyw4XTjm0ooZAhYZBzBMaHlb9rHuFQxe1XfnPy2dsRCZAjWoxRicrVBSBdsw4ZBCZAzBn5VQZDZD
+graph.facebook.com/v3.0/100024101222822/conversations?fields=participants,link&limit=10000&access_token=EAAJUrqnnDw4BAAvw0veGxcsWXWdM5Mo3Au9bkrlqpVcaGJSBRA89LX6vMM1xyQqhArhpnGMDzaTwg07wesqHB2h9q6Sku8xyEdojXhRo28yYKzAefq4CdkNeiroHKbkjAo7BPizmoAtTocyDSZBHQt4Qaur9aENqqwr53tgZDZD
+
+
+
+the new messenger chatbot access token
+EAAJUrqnnDw4BAFUsIbej3SlHCtCFgAZBWq5bkOeCNCWP0JHb4inEfBeX5XWB5FeCklCKiBdfse9oz4fXmbpUQaVTSdGTIOtLUwLcIBM2E54jyYLuWtTeUr4rtD3xqUmY0FpEhAAhVZAmkQULuxcMeEtODjLotHsJ5T9edF9juOsvzNynsG
+flask webhook token i chose is
+iseegr8tfuldeadppl
+quick convo list using messenger new access token
+https://graph.facebook.com/v5.0/100439491416453/conversations?fields=participants,link&limit=10000&access_token=EAAJUrqnnDw4BAFUsIbej3SlHCtCFgAZBWq5bkOeCNCWP0JHb4inEfBeX5XWB5FeCklCKiBdfse9oz4fXmbpUQaVTSdGTIOtLUwLcIBM2E54jyYLuWtTeUr4rtD3xqUmY0FpEhAAhVZAmkQULuxcMeEtODjLotHsJ5T9edF9juOsvzNynsG
