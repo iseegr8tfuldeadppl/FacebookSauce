@@ -1,0 +1,17 @@
+*.jks
+*.keystore
+*.iml
+/PageHelperTools2/.gradle
+PageHelperTools2/local.properties
+PageHelperTools2/.idea/caches
+/PageHelperTools2/.idea/libraries
+/PageHelperTools2/.idea/modules.xml
+/PageHelperTools2/.idea/workspace.xml
+/PageHelperTools2/.idea/navEditor.xml
+/PageHelperTools2/.idea/assetWizardSettings.xml
+/PageHelperTools2/.DS_Store
+/PageHelperTools2/build
+/PageHelperTools2/captures
+/PageHelperTools2/.externalNativeBuild
+/PageHelperTools2/.cxx
+

@@ -6,7 +6,6 @@ from values import sending_auth, sending_data, SENDING_API_URL
 # load receiving variables
 from values import receiving_auth, receiving_data, RECEIVING_API_URL
 
-
 text_file = "output_with_all_info_2.txt"
 
 def load_page_of_clients(data):

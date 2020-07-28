@@ -1,0 +1,40 @@
+make a simple app that lets admins login thru facebook for their access token
+
+somehow get both types of access tokens potentially use the first one to get the other
+
+once i have both access tokens the functionality can be performed
+
+page owners can send their requests over firebase (since they're logged in already) and i will have a listener on server intercepting
+
+listener will check database every 5 minutes for new requests (potentially less delay) and executes said ones
+
+access tokens would be saved offline
+
+have a way to distinguish pages from just their access tokens so you provide a certain service to each page
+
+listen on pages dms
+
+
+
+
+
+
+Services to offer:
+> contact all clients with a message (potentially include buttons later in the app)
+    > maybe 1 message for 250da, 5 messages for 690da, 10 messages for 1250da
+
+> conversational replies
+    > replies to detected keywords
+    > replying with messages containing buttons (ex. calling functionality)
+> chatbot admin mode :
+    > the adding of a product by simply sending a photo/writing a name
+        > must test how u can queue access to a database from two places
+    > specifying keywords that the chatbot replies to
+    > a set list of quick replies
+
+
+Future:
+> included app must allow :
+    > links products from the page's website when specific keywords are detected
+    > designing replies with buttons
+    > setting up a quickreplies list
