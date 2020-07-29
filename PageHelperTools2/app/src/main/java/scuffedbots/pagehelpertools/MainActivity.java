@@ -1,5 +1,6 @@
 package scuffedbots.pagehelpertools;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,12 +11,17 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("HH", "helo");
         Thread.setDefaultUncaughtExceptionHandler(new TopExceptionHandler());
 
         callbackManager = CallbackManager.Factory.create();
+        mAuth = FirebaseAuth.getInstance();
 
         txtFbLogin = findViewById(R.id.login_button);
 
@@ -51,10 +57,11 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(LoginResult loginResult) {
                 mAccessToken = loginResult.getAccessToken();
                 Log.i("HH", "token "  +mAccessToken.getToken());
-                Log.i("HH", "expiry "  +mAccessToken.getExpires());
+                        Log.i("HH", "expiry "  +mAccessToken.getExpires());
                 Log.i("HH", "expiry 2 "  +mAccessToken.getDataAccessExpirationTime());
                 Log.i("HH", "ah " + mAccessToken);
-                getUserProfile(mAccessToken);
+
+                handleFacebookAccessToken(mAccessToken);
             }@Override
             public void onCancel() {
 
@@ -66,6 +73,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void handleFacebookAccessToken(final AccessToken token) {
+        Log.i("HH", "handleFacebookAccessToken:" + token);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.i("HH", "signInWithCredential:success");
+
+                            FirebaseUser currentUser = mAuth.getCurrentUser();
+                            Log.i("HH", "new currentUser " + currentUser);
+                            getUserProfile(token);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.i("HH", "signInWithCredential:failure" + task.getException());
+                        }
+
+                        // ...
+                    }
+                });
+    }
+
     private void getUserProfile(AccessToken currentAccessToken) {
         GraphRequest request = GraphRequest.newMeRequest(
                 currentAccessToken,
@@ -75,12 +107,13 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             //You can fetch user info like this…
                             //object.getJSONObject(“picture”).
-                            Log.i("HH", "yes " + response);
-                            Log.i("HH", "yes " + object);
+                            Log.i("HH", "response " + response);
+                            Log.i("HH", "object " + object);
                             //Log.i("HH", "yes " + object.getString("email"));
                             //Log.i("HH", "yes " + object.getString("name"));
                             //Log.i("HH", "yes " + object.getString("id"));
-                            Log.i("HH", "yes " + object.getJSONObject("data").getString("url"));
+
+                            Log.i("HH", "url " + object.getJSONObject("data").getString("url"));
                         } catch (JSONException e) {
                             Log.i("HH", e.toString());
                         }}
@@ -89,7 +122,18 @@ public class MainActivity extends AppCompatActivity {
         parameters.putString("fields", "id,name,email,picture.width(200)");
         request.setParameters(parameters);
         request.executeAsync();
-    }@Override
+    }
+
+    private FirebaseAuth mAuth;
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        Log.i("HH", "currentUser " + currentUser);
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode,  data);

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "777722552158",
+    "firebase_url": "https://facebooksauceyes.firebaseio.com",
+    "project_id": "facebooksauceyes",
+    "storage_bucket": "facebooksauceyes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777722552158:android:03b8c7f9c5cf944bcbb9cf",
+        "android_client_info": {
+          "package_name": "scuffedbots.pagehelpertools"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777722552158-if8gploujimv3424432oglqgore3a9mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC64aWeEpn1bEjcd42EG9bZJZ0qyU0R1B0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777722552158-if8gploujimv3424432oglqgore3a9mu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

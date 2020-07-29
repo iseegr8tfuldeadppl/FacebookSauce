@@ -1,8 +1,8 @@
-make a simple app that lets admins login thru facebook for their access token
+DONE make a simple app that lets admins login thru facebook for their access token
 
-somehow get both types of access tokens potentially use the first one to get the other
+DONE somehow get both types of access tokens potentially use the first one to get the other
 
-once i have both access tokens the functionality can be performed
+DONE once i have both access tokens the functionality can be performed
 
 page owners can send their requests over firebase (since they're logged in already) and i will have a listener on server intercepting
 
