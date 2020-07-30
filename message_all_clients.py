@@ -6,7 +6,7 @@ from values import sending_auth, sending_data, SENDING_API_URL
 # load receiving variables
 from values import receiving_auth, receiving_data, RECEIVING_API_URL
 
-text_file = "output_with_all_info_2.txt"
+text_file = "output_with_all_info.txt"
 
 def load_page_of_clients(data):
 
@@ -73,7 +73,7 @@ def message_clients(amount=None, message="heylo"):
     # Step 3: close the file
     file.close()
 
-    print("{} clients will be messaged".format(total_clients))
+    print("{} clients will be messaged".format(amount_of_clients))
 
     # Step 4: prepare payload
     global sending_data
@@ -83,19 +83,21 @@ def message_clients(amount=None, message="heylo"):
     for id in ids:
 
         # Step 5.1: first set this client's id
-        payload["recipient"].update({"id": id})
+        sending_data["recipient"].update({"id": id})
 
         # Step 5.2: second send the post request
         response = requests.post(SENDING_API_URL, params=sending_auth, json=sending_data)
 
         # Step 5.3: if response doesn't seem like it was accepted then stop
-        if response.content.find("recipient_id")==-1:
-            print("failed to message {} with response {}".format(id, response.content))
-            return
+        print(response.content)
+        # if str(response.content).find("recipient_id")==-1:
+        #     print("failed to message {} with response {}".format(id, response.content))
+        #     return
 
 
     print("Successfully messaged {} clients".format(total_clients))
 
 
 #load_all_clients()
-#message_clients(amount=None, message="hey boys")
+yes = "متجر مست يحب بكم لشراء المنتجات عبر الإنترنت بتخفيضات رهيبة جديدة، ما عليك إلا إرسال رابط منتجك"
+message_clients(amount=10, message=yes)

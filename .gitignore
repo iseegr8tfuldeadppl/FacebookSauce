@@ -15,3 +15,4 @@ PageHelperTools2/.idea/caches
 /PageHelperTools2/.externalNativeBuild
 /PageHelperTools2/.cxx
 
+*.pyc
