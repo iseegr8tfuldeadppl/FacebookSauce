@@ -6,7 +6,7 @@ from values import sending_auth, sending_data, SENDING_API_URL
 # load receiving variables
 from values import receiving_auth, receiving_data, RECEIVING_API_URL
 
-text_file = "output_with_all_info.txt"
+text_file = "output_with_all_info_2.txt"
 
 def load_page_of_clients(data):
 
@@ -15,6 +15,7 @@ def load_page_of_clients(data):
 
     # Step 2: turn the response into a dictionary
     page = eval(response.content)
+    print(page)
 
     # Step 3: open/create the text file
     file = open(text_file, "a", encoding="utf-8-sig")
@@ -99,5 +100,9 @@ def message_clients(amount=None, message="heylo"):
 
 
 #load_all_clients()
-yes = "متجر مست يحب بكم لشراء المنتجات عبر الإنترنت بتخفيضات رهيبة جديدة، ما عليك إلا إرسال رابط منتجك"
-message_clients(amount=10, message=yes)
+# yes = "متجر مست يحب بكم لشراء المنتجات عبر الإنترنت بتخفيضات رهيبة جديدة، ما عليك إلا إرسال رابط منتجك"
+# message_clients(amount=10, message=yes)
+
+
+# Step 1: trigger the looper by requesting the first page
+after = load_page_of_clients(receiving_data)

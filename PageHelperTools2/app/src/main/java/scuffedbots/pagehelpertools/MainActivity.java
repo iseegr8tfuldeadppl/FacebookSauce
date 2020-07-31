@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
     private static final String EMAIL = "email";
     private static final String PAGES_MESSAGING = "pages_messaging";
+    private static final String PAGES_SHOW_LIST = "pages_show_list";
 
 
 
@@ -51,15 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
         txtFbLogin = findViewById(R.id.login_button);
 
-        txtFbLogin.setPermissions(Arrays.asList(PAGES_MESSAGING));
+        txtFbLogin.setPermissions(PAGES_MESSAGING, PAGES_SHOW_LIST);
         txtFbLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 mAccessToken = loginResult.getAccessToken();
-                Log.i("HH", "token "  +mAccessToken.getToken());
-                        Log.i("HH", "expiry "  +mAccessToken.getExpires());
-                Log.i("HH", "expiry 2 "  +mAccessToken.getDataAccessExpirationTime());
-                Log.i("HH", "ah " + mAccessToken);
 
                 handleFacebookAccessToken(mAccessToken);
             }@Override
@@ -68,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
             }@Override
             public void onError(FacebookException error) {
                 Log.i("HH", String.valueOf(error));
-
             }
         });
     }
@@ -99,6 +95,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getUserProfile(AccessToken currentAccessToken) {
+        Log.i("HH", "token "  +mAccessToken.getToken());
+        Log.i("HH", "expiry "  +mAccessToken.getExpires());
+        Log.i("HH", "expiry 2 "  +mAccessToken.getDataAccessExpirationTime());
         GraphRequest request = GraphRequest.newMeRequest(
                 currentAccessToken,
                 new GraphRequest.GraphJSONObjectCallback() {
@@ -112,15 +111,13 @@ public class MainActivity extends AppCompatActivity {
                             //Log.i("HH", "yes " + object.getString("email"));
                             //Log.i("HH", "yes " + object.getString("name"));
                             //Log.i("HH", "yes " + object.getString("id"));
-
-                            Log.i("HH", "url " + object.getJSONObject("data").getString("url"));
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             Log.i("HH", e.toString());
                         }}
                 });
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,email,picture.width(200)");
-        request.setParameters(parameters);
+        parameters.putString("fields", "accounts,id,name,email,picture.width(200)");
+        request.setParameters(parameters); //
         request.executeAsync();
     }
 
