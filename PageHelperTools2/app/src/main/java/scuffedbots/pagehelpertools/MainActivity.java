@@ -5,9 +5,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -15,6 +18,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -67,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Step 2: setup facebook & firebase variables
         LoginButton login_button = findViewById(R.id.login_button);
-        FrameLayout loading = findViewById(R.id.loading);
+        LinearLayout loading = findViewById(R.id.loading);
 
         // remove loading layout and show main content
         login_button.setVisibility(View.VISIBLE);
@@ -75,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
         callbackManager = CallbackManager.Factory.create();
         give_function_to_login_button(login_button);
+
+
     }
 
     private void give_function_to_login_button(LoginButton txtFbLogin) {
@@ -204,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void exit(List<PageData> pages){
-        Intent mainPage = new Intent(this, MainPage.class);
+        Intent mainPage = new Intent(this, MessagesList.class);
         Bundle b = new Bundle();
 
         StringBuilder pagesString = new StringBuilder();

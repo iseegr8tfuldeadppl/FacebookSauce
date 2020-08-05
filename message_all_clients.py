@@ -6,16 +6,18 @@ from values import sending_auth, sending_data, SENDING_API_URL
 # load receiving variables
 from values import receiving_data, RECEIVING_API_URL
 
-text_file = "output_with_all_info_2.txt"
+text_file = "output_with_all_info_3.txt"
+
+client_count = 0
 
 def load_page_of_clients(data):
+    global client_count
 
     # Step 1: request 499 clients from facebook
     response = requests.get(RECEIVING_API_URL, params=data)
 
     # Step 2: turn the response into a dictionary
     page = eval(response.content)
-    print(page)
 
     # Step 3: open/create the text file
     file = open(text_file, "a", encoding="utf-8-sig")
@@ -23,9 +25,12 @@ def load_page_of_clients(data):
     # Step 4: loop over each client to save in the file
     for client in page["data"]:
         file.write(str(client) + "\n")
+        client_count += 1
 
     # Step 5: close file
     file.close()
+
+    print("clients " + str(client_count))
 
     # Step 6: if there's a next page then return it
     if page.get("paging"):
@@ -96,13 +101,10 @@ def message_clients(amount=None, message="heylo"):
         #     return
 
 
-    print("Successfully messaged {} clients".format(total_clients))
+    print("Successfully messaged {} clients".format(amount_of_clients))
 
 
 #load_all_clients()
 # yes = "متجر مست يحب بكم لشراء المنتجات عبر الإنترنت بتخفيضات رهيبة جديدة، ما عليك إلا إرسال رابط منتجك"
-# message_clients(amount=10, message=yes)
-
-
-# Step 1: trigger the looper by requesting the first page
-after = load_page_of_clients(receiving_data)
+yes = "متجر مست يعود بتخفيضات رهيبة على طلبياتك من مواقع الانترنت مثل" + "\n" + "Aliexpress, Banggood, Ebay, Wish" + "\n\n" + "ما عليكم إلا إرسال رابط منتجكم لنا"
+message_clients(message=yes)

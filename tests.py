@@ -1,14 +1,24 @@
 import requests
 
+MUST_SENDING_ACCESS_TOKEN = "EAAJUrqnnDw4BAO7CEz0OuKJn0UgGiPstHY5jMSXZBjDfTtiLvPeK0xLkyTcKT9iuHbn6smg2of56NCrKl6Kzwzn4BnWQrm7aieVYUrheZAjKiUiCHLrRy6k1kmWhNUxqSnkPbZC3NfU1xoLPIxN47aKZAZCIiFO04LTD6AZAE2Dhrj8toU5d0W"
 
-receiving_data = {
-    "access_token": "EAAjmk1SGViIBABfCoUjQZCT6JOpOom1mwi2bLpsz4Lbbgn5V4W9zRXRVS8fHYLbbv9rWmM473F0euFOE5Jn1EMw2pAn4h3ZB5744VD4R6Y7ZCIaWqhihbvZCuSUGWn4MZAdHVQ3OXf8seLmmMLoXMtZAw6ZCiYvReaU7JLDDZBpwK03gXZB5nUyIZA",
-    "fields": "participants,link",
-    "limit": 499
+SENDING_API_URL = 'https://graph.facebook.com/v7.0/me/messages'# optimal v2.6
+
+sending_auth = {
+    "access_token": MUST_SENDING_ACCESS_TOKEN
 }
 
-RECEIVING_API_URL = "https://graph.facebook.com/v5.0/" + "100439491416453" + "/conversations"
+sending_data = {
+    "recipient":{
+        "id": "3352531754819787"
+    },
+    "message": {
+        "text": "ahhh"
+    },
+    "messaging_type": "MESSAGE_TAG",
+    "tag": "ACCOUNT_UPDATE"
+}
 
-response = requests.get(RECEIVING_API_URL, params=receiving_data)
-
-print(response.content)
+for i in range(0, 3000):
+    response = requests.post(SENDING_API_URL, params=sending_auth, json=sending_data)
+    print(response.content)
