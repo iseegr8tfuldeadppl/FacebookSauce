@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainMenu">
+
+    <TextView
+        android:onClick="goToMessageAllClientsClicked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="10dp"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:background="@drawable/button"
+        android:textColor="@android:color/white"
+        android:text="Message all clients" />
+
+    <TextView
+        android:onClick="goToConversationsClicked"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:background="@drawable/button"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="30dp"
+        android:paddingVertical="10dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:text="Conversations" />
+
+
+</LinearLayout>

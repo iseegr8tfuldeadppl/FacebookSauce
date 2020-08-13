@@ -57,7 +57,7 @@ public class MessagesList extends AppCompatActivity implements CommunicationInte
             Bundle previous_b = intent.getExtras();
             if(previous_b!=null){
 
-                Intent mainPage = new Intent(this, MainPage.class);
+                Intent mainPage = new Intent(this, MessageAllClients.class);
                 Bundle b = new Bundle();
 
                 b.putString("pages",previous_b.getString("pages"));

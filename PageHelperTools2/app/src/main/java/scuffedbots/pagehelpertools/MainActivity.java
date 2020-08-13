@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void exit(List<PageData> pages){
-        Intent mainPage = new Intent(this, MessagesList.class);
+        Intent mainMenu = new Intent(this, MainMenu.class);
         Bundle b = new Bundle();
 
         StringBuilder pagesString = new StringBuilder();
@@ -226,8 +226,8 @@ public class MainActivity extends AppCompatActivity {
                 pagesString.append("&");
         }
         b.putString("pages",pagesString.toString());
-        mainPage.putExtras(b);
-        startActivity(mainPage);
+        mainMenu.putExtras(b);
+        startActivity(mainMenu);
         finish();
     }
 

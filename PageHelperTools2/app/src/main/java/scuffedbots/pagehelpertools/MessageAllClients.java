@@ -3,29 +3,23 @@ package scuffedbots.pagehelpertools;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import scuffedbots.pagehelpertools.MainActivity.PageData;
 
-public class MainPage extends AppCompatActivity {
+public class MessageAllClients extends AppCompatActivity {
 
     private EditText bubbleInput, amountInput;
     private TextView all;
@@ -38,7 +32,7 @@ public class MainPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_page);
+        setContentView(R.layout.activity_message_all_clients);
 
         // Step 1: setup debugger
         Thread.setDefaultUncaughtExceptionHandler(new TopExceptionHandler());

@@ -6,7 +6,7 @@ from values import sending_auth, sending_data, SENDING_API_URL
 # load receiving variables
 from values import receiving_data, RECEIVING_API_URL
 
-text_file = "output_with_all_info_3.txt"
+text_file = "output_with_all_info_4.txt"
 
 client_count = 0
 
@@ -17,17 +17,33 @@ def load_page_of_clients(data):
     response = requests.get(RECEIVING_API_URL, params=data)
 
     # Step 2: turn the response into a dictionary
-    page = eval(response.content)
+    page = eval(response.text)
 
     # Step 3: open/create the text file
     file = open(text_file, "a", encoding="utf-8-sig")
 
     # Step 4: loop over each client to save in the file
-    for client in page["data"]:
-        file.write(str(client) + "\n")
-        client_count += 1
+    for ct in page["data"]:
+        client = str(ct)
+        found = False
+        lines_looped = 0
 
+        try:
+            file_read = open(text_file, "r", encoding="utf-8-sig")
+            for line in file_read.readlines():
+                lines_looped += 1
+                if eval()["id"]==eval(line)["id"]:
+                    found = True
+                    break
+            file_read.close()
+        except:
+            pass
+
+        if not found:
+            file.write(str(client) + "\n")
+        client_count += 1
     # Step 5: close file
+    file.close()
     file.close()
 
     print("clients " + str(client_count))
@@ -62,7 +78,7 @@ def message_clients(amount=None, message="heylo"):
     # Step 2: extract the specified amount of clients (all if none specified)
     ids = []
     amount_of_clients = 0
-    for line in file.read().split("\n")[:-1]:
+    for line in file.readlines()[:-1]:
         client = eval(line)
 
         # Step 2.1: only append clients whom's accounts are still valid
@@ -104,7 +120,7 @@ def message_clients(amount=None, message="heylo"):
     print("Successfully messaged {} clients".format(amount_of_clients))
 
 
-#load_all_clients()
+load_all_clients()
 # yes = "متجر مست يحب بكم لشراء المنتجات عبر الإنترنت بتخفيضات رهيبة جديدة، ما عليك إلا إرسال رابط منتجك"
-yes = "متجر مست يعود بتخفيضات رهيبة على طلبياتك من مواقع الانترنت مثل" + "\n" + "Aliexpress, Banggood, Ebay, Wish" + "\n\n" + "ما عليكم إلا إرسال رابط منتجكم لنا"
-message_clients(message=yes)
+# yes = "متجر مست يعود بتخفيضات رهيبة على طلبياتك من مواقع الانترنت مثل" + "\n" + "Aliexpress, Banggood, Ebay, Wish" + "\n\n" + "ما عليكم إلا إرسال رابط منتجكم لنا"
+# message_clients(message=yes)
