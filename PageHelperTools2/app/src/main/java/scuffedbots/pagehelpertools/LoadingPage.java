@@ -88,7 +88,6 @@ public class LoadingPage extends AppCompatActivity {
         load_client_page(parameters);
     }
 
-
     private void load_client_page(final Bundle parameters) {
         /* make the API call */
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
@@ -122,6 +121,7 @@ public class LoadingPage extends AppCompatActivity {
                                     clients.add(new Client(){{
                                         name=clientData.getString("name");
                                         id=clientData.getString("id");
+                                        conversation_id=conversation.getString("id");
                                     }});
                                 }
 
@@ -251,5 +251,6 @@ public class LoadingPage extends AppCompatActivity {
     public static class Client {
         public String name;
         public String id;
+        public String conversation_id;
     }
 }

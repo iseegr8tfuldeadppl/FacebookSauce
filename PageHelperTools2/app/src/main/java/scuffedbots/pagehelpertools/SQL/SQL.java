@@ -19,6 +19,7 @@ public class SQL extends SQLiteOpenHelper {
     private static final String COL_3_CLIENTS_WHO_RECEIVED_THIS_MSG = "COL_3_CLIENTS_WHO_RECEIVED_THIS_MSG";
     private static final String COL_3_CLIENT_NAME = "COL_3_CLIENT_NAME";
     private static final String COL_4_AMOUNT = "COL_4_AMOUNT";
+    private static final String COL_4_CLIENT_CONVERSATION_ID = "COL_4_CLIENT_CONVERSATION_ID";
     private static final String COL_5_PAGE_ID = "COL_5_PAGE_ID";
     private static SQL mInstance = null;
 
@@ -29,7 +30,7 @@ public class SQL extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + MESSAGES_TABLE + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_2_MESSAGE + " TEXT, " + COL_3_CLIENTS_WHO_RECEIVED_THIS_MSG + " TEXT, " + COL_4_AMOUNT + " TEXT, " + COL_5_PAGE_ID + " TEXT" + ");");
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + LOG_TABLE + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_2_CLIENT_ID + " TEXT, " + COL_3_MESSAGE_ID + " TEXT" + ");");
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + LOG_TABLE + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_2_CLIENT_ID + " TEXT, " + COL_3_MESSAGE_ID + " TEXT, " + COL_4_CLIENT_CONVERSATION_ID + " TEXT"  + ");");
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + CLIENTS_TABLE + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_2_CLIENT_ID + " TEXT, " + COL_3_CLIENT_NAME + " TEXT" + ");");
     }
 
@@ -85,19 +86,21 @@ public class SQL extends SQLiteOpenHelper {
         return sqLiteDatabase.rawQuery("select * from " + MESSAGES_TABLE + ";", null);
     }
 
-    public boolean insertClient(String CLIENT_ID, String CLIENT_NAME){
+    public boolean insertClient(String CLIENT_ID, String CLIENT_NAME, String CLIENT_CONVERSATION_ID){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2_CLIENT_ID, CLIENT_ID);
         contentValues.put(COL_3_CLIENT_NAME, CLIENT_NAME);
+        contentValues.put(COL_4_CLIENT_CONVERSATION_ID, CLIENT_CONVERSATION_ID);
         return sqLiteDatabase.insert(CLIENTS_TABLE, null, contentValues) != -1;
     }
 
-    public boolean updateClient(String _ID, String CLIENT_ID, String CLIENT_NAME){
+    public boolean updateClient(String _ID, String CLIENT_ID, String CLIENT_NAME, String CLIENT_CONVERSATION_ID){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2_CLIENT_ID, CLIENT_ID);
         contentValues.put(COL_3_CLIENT_NAME, CLIENT_NAME);
+        contentValues.put(COL_4_CLIENT_CONVERSATION_ID, CLIENT_CONVERSATION_ID);
         sqLiteDatabase.update(CLIENTS_TABLE, contentValues, COL_1 + "=?", new String[] { _ID });
         return true;
     }
