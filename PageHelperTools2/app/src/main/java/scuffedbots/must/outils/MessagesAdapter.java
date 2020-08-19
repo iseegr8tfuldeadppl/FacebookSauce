@@ -1,12 +1,10 @@
-package scuffedbots.pagehelpertools;
+package scuffedbots.must.outils;
 
 
 import android.content.Context;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,13 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import scuffedbots.pagehelpertools.MessagesList.Message;
-
-
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHolder> {
 
     private CommunicationInterface callback;
-    private List<Message> messages;
+    private List<MessagesList.Message> messages;
     private LayoutInflater mInflater;
     private Context context;
     private int CLIENTS;
@@ -36,7 +31,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
         }
     }
 
-    public MessagesAdapter(Context context, List<Message> messages, int CLIENTS) {
+    public MessagesAdapter(Context context, List<MessagesList.Message> messages, int CLIENTS) {
         this.messages = messages;
         this.context = context;
         this.callback = (CommunicationInterface) context;
@@ -55,7 +50,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int position) {
-        final Message message = messages.get(position);
+        final MessagesList.Message message = messages.get(position);
 
         String id = "#" + message.ID;
         String counter = message.CLIENTS_MESSAGED + "/" + CLIENTS + "\n" + "Clients Messaged";

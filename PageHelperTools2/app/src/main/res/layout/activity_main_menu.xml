@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainMenu">
+    tools:context="scuffedbots.must.outils.MainMenu">
 
     <TextView
+        android:visibility="gone"
         android:onClick="goToMessageAllClientsClicked"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

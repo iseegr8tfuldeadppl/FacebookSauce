@@ -1,17 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Conversations">
-    <androidx.recyclerview.widget.RecyclerView
+    tools:context="scuffedbots.must.outils.Conversations">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/images_sent_recycler" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:weightSum="1"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="3dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="@color/Accent"
+            android:layout_height="70dp" >
+            <ImageView
+                android:layout_weight="0.15"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="toggleImagesReceivedIPaidClicked"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:src="@drawable/i_paid_icon" />
+            <Spinner
+                android:layout_weight="0.7"
+                android:id="@+id/pagesSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_weight="0.15"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="trashClicked"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:src="@drawable/trash" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/images_received_recycler" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/i_paid_presses_recycler" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+            android:visibility="gone"
+            android:id="@+id/previewHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+            <scuffedbots.must.outils.TouchImageView
+                android:id="@+id/preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <FrameLayout
+                android:paddingVertical="9dp"
+                android:paddingHorizontal="9dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#33000000" >
+                <ImageView
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="exitPreviewClicked"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/arrow_left" />
+            </FrameLayout>
+        </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/loadingPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/i_paid_presses_recycler" />
-</LinearLayout>
+        android:clickable="true"
+        android:background="#88555555"
+        android:focusable="true" >
+        <ProgressBar
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+</FrameLayout>

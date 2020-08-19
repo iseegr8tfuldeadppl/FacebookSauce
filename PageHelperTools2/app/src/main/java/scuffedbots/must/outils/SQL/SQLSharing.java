@@ -1,4 +1,4 @@
-package scuffedbots.pagehelpertools.SQL;
+package scuffedbots.must.outils.SQL;
 
 import android.database.Cursor;
 

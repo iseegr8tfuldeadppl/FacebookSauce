@@ -1,4 +1,4 @@
-package scuffedbots.pagehelpertools.SQL;
+package scuffedbots.must.outils.SQL;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -13,14 +13,14 @@ public class SQL extends SQLiteOpenHelper {
     private static final String LOG_TABLE = "LOG_TABLE";
     private static final String CLIENTS_TABLE = "CLIENTS_TABLE";
     private static final String COL_1 = "_ID";
-    private static final String COL_2_MESSAGE = "COL_2_MESSAGE";
-    private static final String COL_2_CLIENT_ID = "COL_2_CLIENT_ID";
-    private static final String COL_3_MESSAGE_ID = "COL_3_MESSAGE_ID";
-    private static final String COL_3_CLIENTS_WHO_RECEIVED_THIS_MSG = "COL_3_CLIENTS_WHO_RECEIVED_THIS_MSG";
-    private static final String COL_3_CLIENT_NAME = "COL_3_CLIENT_NAME";
-    private static final String COL_4_AMOUNT = "COL_4_AMOUNT";
-    private static final String COL_4_CLIENT_CONVERSATION_ID = "COL_4_CLIENT_CONVERSATION_ID";
-    private static final String COL_5_PAGE_ID = "COL_5_PAGE_ID";
+    private static final String COL_2_MESSAGE = "MESSAGE";
+    private static final String COL_2_CLIENT_ID = "CLIENT_ID";
+    private static final String COL_3_MESSAGE_ID = "ESSAGE_ID";
+    private static final String COL_3_CLIENTS_WHO_RECEIVED_THIS_MSG = "CLIENTS_WHO_RECEIVED_THIS_MSG";
+    private static final String COL_3_CLIENT_NAME = "CLIENT_NAME";
+    private static final String COL_4_AMOUNT = "AMOUNT";
+    private static final String COL_4_CLIENT_CONVERSATION_ID = "CLIENT_CONVERSATION_ID";
+    private static final String COL_5_PAGE_ID = "PAGE_ID";
     private static SQL mInstance = null;
 
     public SQL(Context context) {
@@ -30,8 +30,8 @@ public class SQL extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + MESSAGES_TABLE + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_2_MESSAGE + " TEXT, " + COL_3_CLIENTS_WHO_RECEIVED_THIS_MSG + " TEXT, " + COL_4_AMOUNT + " TEXT, " + COL_5_PAGE_ID + " TEXT" + ");");
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + LOG_TABLE + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_2_CLIENT_ID + " TEXT, " + COL_3_MESSAGE_ID + " TEXT, " + COL_4_CLIENT_CONVERSATION_ID + " TEXT"  + ");");
-        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + CLIENTS_TABLE + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_2_CLIENT_ID + " TEXT, " + COL_3_CLIENT_NAME + " TEXT" + ");");
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + LOG_TABLE + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_2_CLIENT_ID + " TEXT, " + COL_3_MESSAGE_ID + " TEXT"  + ");");
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + CLIENTS_TABLE + "(" + COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_2_CLIENT_ID + " TEXT, " + COL_3_CLIENT_NAME + " TEXT, " + COL_4_CLIENT_CONVERSATION_ID + " TEXT" + ");");
     }
 
     @Override

@@ -8,6 +8,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:777722552158:android:17a9e571801f6e2dcbb9cf",
+        "android_client_info": {
+          "package_name": "scuffedbots.must.outils"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777722552158-34d71s3okagvgse18qhpsji5k2qt5cjq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "scuffedbots.must.outils",
+            "certificate_hash": "e3b7cfa426d8751d9ae0a156512c7556194a1107"
+          }
+        },
+        {
+          "client_id": "777722552158-if8gploujimv3424432oglqgore3a9mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC64aWeEpn1bEjcd42EG9bZJZ0qyU0R1B0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777722552158-if8gploujimv3424432oglqgore3a9mu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:777722552158:android:03b8c7f9c5cf944bcbb9cf",
         "android_client_info": {
           "package_name": "scuffedbots.pagehelpertools"

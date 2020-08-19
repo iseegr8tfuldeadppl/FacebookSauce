@@ -1,4 +1,4 @@
-package scuffedbots.pagehelpertools;
+package scuffedbots.must.outils;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,4 +1,4 @@
-package scuffedbots.pagehelpertools;
+package scuffedbots.must.outils;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
-import scuffedbots.pagehelpertools.MainActivity.PageData;
+import scuffedbots.must.outils.MainActivity.PageData;
 
 public class LoadingPage extends AppCompatActivity {
 

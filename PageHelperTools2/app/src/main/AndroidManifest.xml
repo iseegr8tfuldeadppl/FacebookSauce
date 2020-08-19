@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="scuffedbots.pagehelpertools">
+    package="scuffedbots.must.outils">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,13 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ImagesSentAdapter"></activity>
-        <activity android:name=".Conversations" />
-        <activity android:name=".MainMenu" />
-        <activity android:name=".MessagesList" />
-        <activity android:name=".LoadingPage" />
+        <activity android:name="scuffedbots.must.outils.ImagesSentAdapter" />
+        <activity android:name="scuffedbots.must.outils.Conversations" />
+        <activity android:name="scuffedbots.must.outils.MainMenu" />
+        <activity android:name="scuffedbots.must.outils.MessagesList" />
+        <activity android:name="scuffedbots.must.outils.LoadingPage" />
         <activity
-            android:name=".MessageAllClients"
+            android:name="scuffedbots.must.outils.MessageAllClients"
             android:windowSoftInputMode="adjustPan" />
 
         <meta-data
@@ -28,7 +28,7 @@
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
-        <activity android:name=".MainActivity">
+        <activity android:name="scuffedbots.must.outils.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

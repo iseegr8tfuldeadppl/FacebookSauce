@@ -1,4 +1,4 @@
-package scuffedbots.pagehelpertools;
+package scuffedbots.must.outils;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,8 +10,8 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-import scuffedbots.pagehelpertools.SQL.SQL;
-import scuffedbots.pagehelpertools.SQL.SQLSharing;
+import scuffedbots.must.outils.SQL.SQL;
+import scuffedbots.must.outils.SQL.SQLSharing;
 
 public class MessagesList extends AppCompatActivity implements CommunicationInterface {
 

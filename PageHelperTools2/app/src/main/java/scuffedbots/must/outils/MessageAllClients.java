@@ -1,4 +1,4 @@
-package scuffedbots.pagehelpertools;
+package scuffedbots.must.outils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,8 +17,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import scuffedbots.pagehelpertools.MainActivity.PageData;
-
 public class MessageAllClients extends AppCompatActivity {
 
     private EditText bubbleInput, amountInput;
@@ -27,7 +25,7 @@ public class MessageAllClients extends AppCompatActivity {
     private Switch allOrSomeCheck;
     private int amount_of_clients = 5000;
     private Spinner pagesSpinner;
-    private List<PageData> pages = new ArrayList<>();
+    private List<MainActivity.PageData> pages = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,7 @@ public class MessageAllClients extends AppCompatActivity {
                     String[] each = pagesString.split("&");
                     for(String page:each){
                         final String[] data = page.split("=");
-                        pages.add(new PageData(){{
+                        pages.add(new MainActivity.PageData(){{
                             name = data[0];
                             id = data[1];
                             access_token = data[2];
@@ -73,7 +71,7 @@ public class MessageAllClients extends AppCompatActivity {
         pagesSpinner = findViewById(R.id.pagesSpinner);
         ArrayAdapter<String> pagesSpinnerAdapter = new ArrayAdapter<>(this, R.layout.spinnerdispaly, android.R.id.text1);
         pagesSpinnerAdapter.setDropDownViewResource(R.layout.spinnerdropdown);
-        for(PageData page:pages)
+        for(MainActivity.PageData page:pages)
             pagesSpinnerAdapter.add(page.name);
         pagesSpinner.setAdapter(pagesSpinnerAdapter);
         //spinnerAdapter.notifyDataSetChanged();
@@ -125,7 +123,7 @@ public class MessageAllClients extends AppCompatActivity {
         }
 
         int selectedPageIndex = pagesSpinner.getSelectedItemPosition();
-        PageData selectedPageElement = pages.get(selectedPageIndex);
+        MainActivity.PageData selectedPageElement = pages.get(selectedPageIndex);
         String selectedPage = selectedPageElement.name + "=" + selectedPageElement.id + "=" + selectedPageElement.access_token;
 
         Bundle b = new Bundle();

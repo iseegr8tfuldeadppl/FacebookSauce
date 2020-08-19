@@ -1,30 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:orientation="horizontal"
     android:clickable="true"
-    android:id="@+id/holder"
     android:focusable="true"
+    android:weightSum="3"
     android:layout_height="100dp">
 
-    <ImageView
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_weight="2.2"
+        android:layout_width="0dp"
+        android:background="@drawable/fader"
         android:layout_height="match_parent"
-        android:id="@+id/image" />
+        android:id="@+id/holder">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/image" />
+
+        <TextView
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/client_name" />
+    </RelativeLayout>
 
     <TextView
+        android:gravity="center"
+        android:layout_weight="0.8"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:textSize="17sp"
-        android:background="@drawable/fader"
-        android:lines="1"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:paddingHorizontal="10dp"
-        android:gravity="start|center_vertical|bottom"
-        android:paddingBottom="5dp"
-        android:textColor="@android:color/black"
-        android:layout_width="match_parent"
+        android:id="@+id/copyButton"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:id="@+id/client_name" />
+        android:background="@drawable/button2"
+        android:text="Copy\nClient Name" />
 
-</RelativeLayout>
+</LinearLayout>

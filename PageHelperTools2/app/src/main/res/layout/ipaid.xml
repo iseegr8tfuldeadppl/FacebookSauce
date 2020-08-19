@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="5dp"
+    android:paddingVertical="5dp"
+    android:background="@drawable/fader"
+    android:id="@+id/holder"
+    android:gravity="center">
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/avatar" />
+    <TextView
+        android:id="@+id/client_name"
+        android:paddingHorizontal="5dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:lines="1"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amine Ben" />
+</LinearLayout>

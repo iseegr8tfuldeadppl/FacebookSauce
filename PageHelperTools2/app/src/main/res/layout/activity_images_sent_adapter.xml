@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ImagesSentAdapter">
+    tools:context="scuffedbots.must.outils.ImagesSentAdapter">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
